@@ -72,6 +72,11 @@ public class FeignAspect {
                 typeField.setAccessible(true);
                 Class claz = (Class) typeField.get(target);
 
+                //在Bean中设置url
+                Field urlField = target.getClass().getDeclaredField("url");
+                urlField.setAccessible(true);
+                urlField.set(target, url);
+
                 //重新注册bean
                 ConfigurableApplicationContext context = (ConfigurableApplicationContext) applicationContext;
                 DefaultListableBeanFactory beanFactory = (DefaultListableBeanFactory) context.getBeanFactory();
