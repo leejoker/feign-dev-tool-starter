@@ -17,7 +17,7 @@ mvn install
 
 ## How to use
 
-1. add dependency in you pom.xml
+1.add dependency in you pom.xml
 
 ```xml
 
@@ -29,7 +29,7 @@ mvn install
 
 ```
 
-2. config the application.yml
+2.config the application.yml
 
 ```yaml
 
@@ -43,7 +43,7 @@ feign-tool:
 ```
 
 
-3. add the package to your ComponentScan annotation
+3.add the package to your ComponentScan annotation
 
 ```java
 
@@ -58,3 +58,5 @@ public class DemoApplication {
 }
 
 ```
+
+4. it works when you call the client the second time, because the first time it will override the object in bean factory.
