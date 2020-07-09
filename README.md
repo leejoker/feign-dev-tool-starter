@@ -58,5 +58,3 @@ public class DemoApplication {
 }
 
 ```
-
-4. it works when you call the client the second time, because the first time it will override the object in bean factory.
