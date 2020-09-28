@@ -1,11 +1,8 @@
 package io.github.leejoker.consul;
 
-import io.github.leejoker.Redirect;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
 
 @Data
 @Component
@@ -15,5 +12,4 @@ public class ConsulProperties {
     private Integer port;
     private String dataCenter;
     private String excludes;
-    private List<Redirect> redirects;
 }

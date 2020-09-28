@@ -8,6 +8,7 @@ import feign.Feign;
 import feign.Target;
 import feign.codec.Decoder;
 import feign.codec.Encoder;
+import io.github.leejoker.FeignDevProperties;
 import io.github.leejoker.utils.ConsulUtils;
 import io.github.leejoker.utils.HttpUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -40,6 +41,9 @@ import java.util.concurrent.ConcurrentHashMap;
 @Import(FeignClientsConfiguration.class)
 public class ConsulComponent {
     private static final ConcurrentHashMap<String, String> SERVICE_MAP = new ConcurrentHashMap<>();
+
+    @Autowired
+    private FeignDevProperties feignDevProperties;
 
     @Autowired
     private ConsulProperties consulProperties;
@@ -93,8 +97,8 @@ public class ConsulComponent {
 
     private Map<String, Object> flatRedirects() {
         Map<String, Object> redirectMap = Maps.newHashMap();
-        if (!CollectionUtils.isEmpty(consulProperties.getRedirects())) {
-            consulProperties.getRedirects().stream().forEach(redirect -> {
+        if (feignDevProperties != null && !CollectionUtils.isEmpty(feignDevProperties.getRedirects())) {
+            feignDevProperties.getRedirects().stream().forEach(redirect -> {
                 redirectMap.put(redirect.getId(), redirect.getUrl());
             });
         }

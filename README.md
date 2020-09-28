@@ -40,9 +40,9 @@ feign-tool:
     port: 8500
     dataCenter: dc1
     excludes: user-service, push-service
-    redirects:
-      demo-service:
-        url: http://localhost:8989/demo
+  redirects:
+    demo-service:
+      url: http://localhost:8989/demo
 
 ```
 
