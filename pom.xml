@@ -10,7 +10,7 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <web.version>2.0.8.RELEASE</web.version>
+        <web.version>2.5.12</web.version>
         <guava.version>29.0-jre</guava.version>
         <fastjson.version>1.2.83</fastjson.version>
     </properties>
